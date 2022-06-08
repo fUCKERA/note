@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.note.system.menu.dao.MenuMapper">
+
+    <!-- 查询下级菜单 -->
+    <select id="findChildMenuList" resultType="com.example.note.system.menu.view.MenuNoteVo">
+       select mn.* from menu_note mn
+       left join menu_level ml  on mn.id = ml.menu_id
+       <where>
+           ml.parent_id = #{body.parentId}
+       </where>
+    </select>
+
+
+</mapper>

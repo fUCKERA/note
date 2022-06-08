@@ -1,0 +1,33 @@
+server:
+  port: 10002
+
+spring:
+  thymeleaf:
+    #页面缓存 关闭
+    cache: false
+    #prefix: classpath:/web/
+  web:
+    resources:
+      #设置静态资源加载路径(不推荐)
+      static-locations: classpath:/META-INF/resources/, classpath:/resources/, classpath:/static/, classpath:/public/, classpath:/templates/
+
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite::resource:localData.db
+    username:
+    password:
+
+#mybatis-plus配置
+mybatis-plus:
+  #配置Mapper映射文件
+  mapper-locations: classpath:/mappings/**/*.xml
+  # 配置Mybatis数据返回类型别名（默认别名为类名）
+  type-aliases-package: com.example.note.**.entity
+  configuration:
+    # 自动驼峰命名
+    map-underscore-to-camel-case: true
+
+#配置控制台打印日志Debug
+logging:
+  level:
+    com.example.note: debug

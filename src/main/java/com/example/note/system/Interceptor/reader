@@ -1,0 +1,7 @@
+拦截器
+SpringBoot 三种拦截http请求方式Filter,interceptor和aop。
+这三种拦截方式的拦截顺序是：filter—>Interceptor-->ControllerAdvice-->@Aspect -->Controller；
+这三种方式的区别：
+1.过滤器Filter可以拿到原始的HTTP请求和响应的信息， 但是拿不到你真正处理请求方法的信息，也就是方法的信息。
+2.拦截器Interceptor可以拿到原始的HTTP请求和响应的信息，也可以拿到你真正处理请求方法的信息，但是拿不到传进参数的那个值。
+3.切片Aspect，既然Spring那么支持AOP，可以拿到原始的HTTP请求和响应的信息, 也可以拿到你真正处理请求方法的信息，也可以传进参数的那个值。
